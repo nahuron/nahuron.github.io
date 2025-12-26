@@ -266,6 +266,65 @@ main {
   z-index: 1;
 }
 
+/* Layout inside each research card: image + text */
+.research-item-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Graphic area */
+.research-graphic {
+  flex: 0 0 220px;       /* column for the image */
+  max-width: 260px;
+
+   /* new bits */
+  background: #ffffff;                 /* white background for the image area */
+  border-radius: 14px;                 /* match card rounding */
+  padding: 0.75rem;                    /* space between edge + image */
+  box-shadow: var(--shadow-subtle);    /* subtle lift, optional */
+  display: flex;                       /* center the image inside */
+  align-items: center;
+  justify-content: center;
+}
+
+.research-graphic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: var(--shadow-subtle);
+  object-fit: cover;
+}
+
+/* Text area */
+.research-text {
+  flex: 1 1 260px;       /* take remaining space */
+  min-width: 0;
+}
+
+/* Make title/subtitle sit nicely inside the text block */
+.research-text .h2Tag {
+  margin-top: 0;
+}
+
+.research-text .h4Tag {
+  margin-top: 0.4rem;
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 720px) {
+  .research-item-inner {
+    flex-direction: column;
+  }
+
+  .research-graphic {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}
+
 /* ===========================
    Gallery Grid
    =========================== */
