@@ -1,319 +1,408 @@
-/* === 1. Reset / base from your Strikingly inline CSS === */
+/* ===========================
+   Global & Theme Variables
+   =========================== */
 
-html, body {
-  margin: 0;
-  padding: 0;
+:root {
+  --color-bg: #f5f3ef;          /* warm, neutral background */
+  --color-surface: #ffffff;     /* base card background */
+  --color-surface-alt: #f0ebe4; /* subtle variation */
+  --color-accent: #3f6b5c;      /* muted forest green */
+  --color-accent-soft: rgba(63, 107, 92, 0.08);
+  --color-accent-strong: #2e4c42;
+  --color-text: #263238;        /* dark blue-grey */
+  --color-muted: #6b7a82;
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.12);
+  --shadow-subtle: 0 10px 25px rgba(15, 23, 42, 0.08);
 }
 
-h1,h2,h3,h4,h5,h6,
-p,blockquote,pre,
-a,abbr,acronym,address,
-cite,code,del,dfn,em,
-img,q,s,samp,small,strike,strong,
-sub,sup,tt,var,
-dd,dl,dt,li,ol,ul,
-fieldset,form,label,input,textarea,legend,
-button,table,caption,tbody,tfoot,thead,tr,th,td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 100%;
-  line-height: 1;
-  font-family: inherit;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-q:before, q:after,
-blockquote:before, blockquote:after {
-  content: "";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-  font-size: 14px;
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
-
-a:focus {
-  outline: thin dotted;
-}
-
-article,aside,details,figcaption,figure,
-footer,header,hgroup,nav,section {
-  display: block;
-}
-
-audio,canvas,video {
-  display: inline-block;
-}
-
-audio:not([controls]) {
-  display: none;
-}
-
-sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-
-nav,section,aside,article,figure,header,footer,hgroup {
-  display: block;
-  clear: both;
-}
-
-a {
-  text-decoration: none;
-}
-
-nav ul, footer ul {
-  list-style-type: none;
-}
-
-input::-webkit-input-placeholder {
-  color: #c0c4c8;
-}
-
-/* === 2. Typography & body defaults === */
-/* Matches Strikingly config: body = Arial, headings = Lato */
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  background: radial-gradient(circle at top left, #e7efe9 0, #f5f3ef 45%, #f3efe8 100%);
+  color: var(--color-text);
   line-height: 1.6;
-  color: #222;
-  background-color: #ffffff;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+/* ===========================
+   Links & Typography
+   =========================== */
 
-h1, h2, h3, h4 {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  margin: 0 0 0.5em;
-}
-
-/* Text classes used in your Strikingly content */
-.h1Tag {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 0.5em;
-}
-
-.s-text-font-size-over-40 {
-  font-size: 48px;
-}
-
-.h2Tag {
-  font-size: 28px;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.h4Tag {
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-}
-
-.normalPara {
-  font-size: 15px;
-  margin: 0 0 0.75em;
-}
-
-.s-bg-white {
-  background-color: #ffffff;
-}
-
-/* Links */
 a {
-  color: #0369a1;
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.18s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18em;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 999px;
+  transition: width 0.18s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--color-accent-strong);
 }
 
-/* === 3. Layout helpers for sections === */
-
-.section {
-  padding: 4rem 1rem;
-}
-
-.section-inner {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-/* Two-column layout for About (text + image / Why Herpetology) */
-.two-column {
-  display: grid;
-  grid-template-columns: 2fr 1.3fr;
-  gap: 2rem;
-  align-items: flex-start;
-  margin-top: 1.5rem;
-}
-
-.media-block img {
-  border-radius: 4px;
-}
-
-/* Card-style box for secondary content */
-.card {
-  background-color: rgba(255, 255, 255, 0.96);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* Research items */
-.research-item {
-  margin-bottom: 2.5rem;
-}
-
-.research-item:last-child {
-  margin-bottom: 0;
-}
-
-/* === 4. Photos / gallery === */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.gallery-grid img {
+a:hover::after {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
 }
 
-/* === 5. Contact icons === */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+p {
+  margin: 0 0 1rem;
 }
 
-.contact-item {
-  text-align: center;
+/* match your old class names but modernize the look */
+.h1Tag {
+  font-size: clamp(2.2rem, 3vw, 2.6rem);
+  margin: 0 0 1rem;
+  color: var(--color-accent-strong);
+  letter-spacing: 0.03em;
 }
 
-.contact-item img {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 0.5rem;
+.h2Tag {
+  font-size: clamp(1.4rem, 2.3vw, 1.7rem);
+  margin: 2rem 0 0.5rem;
+  color: var(--color-text);
+  font-weight: 600;
 }
 
-.contact-item p {
-  margin: 0;
-  font-size: 14px;
+.h4Tag {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
 }
 
-/* === 6. Simple header / nav === */
+.normalPara {
+  font-size: 0.98rem;
+  color: var(--color-text);
+}
+
+/* ===========================
+   Header / Navigation
+   =========================== */
 
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid #e5e5e5;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+      to bottom,
+      rgba(245, 243, 239, 0.96),
+      rgba(245, 243, 239, 0.92)
+    );
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .nav-inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.9rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .nav-title {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
 }
 
 .nav-subtitle {
-  font-size: 13px;
-  color: #666;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .nav-links a {
-  margin-left: 1rem;
-  font-size: 14px;
-  color: #444;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.nav-links a::after {
+  height: 1px;
+  background: var(--color-accent);
 }
 
 .nav-links a:hover {
-  color: #0076ff;
+  color: var(--color-accent-strong);
 }
 
-/* === 7. Footer === */
+/* ===========================
+   Sections & Layout
+   =========================== */
+
+main {
+  padding: 1.5rem 0 3rem;
+}
+
+.section {
+  padding: 3.5rem 1.5rem;
+}
+
+.section:nth-of-type(even) {
+  /* subtle alternation between sections */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.75),
+    rgba(244, 240, 233, 0.85)
+  );
+}
+
+.section:nth-of-type(odd) {
+  background: transparent;
+}
+
+/* class you use on some sections */
+.s-bg-white {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(240, 235, 228, 0.95)
+  );
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    var(--color-surface),
+    var(--color-surface-alt)
+  );
+  padding: 2.4rem 2rem 2.6rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===========================
+   About / Text Styling
+   =========================== */
+
+#about .h2Tag:first-of-type {
+  margin-top: 0.4rem;
+}
+
+#about .normalPara + .normalPara {
+  margin-top: 0.2rem;
+}
+
+/* ===========================
+   Research Cards
+   =========================== */
+
+.research-item {
+  margin-top: 2.25rem;
+  padding: 1.5rem 1.6rem 1.7rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.research-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(63, 107, 92, 0.12),
+    transparent 55%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.research-item .h2Tag {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.research-item .h4Tag {
+  margin-top: 0.4rem;
+}
+
+/* ensure text sits above gradient overlay */
+.research-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================
+   Gallery Grid
+   =========================== */
+
+.gallery-grid {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.gallery-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+/* ===========================
+   Contact Grid
+   =========================== */
+
+/* CONTACT LAYOUT: cards in a horizontal line */
+.contact-grid {
+  margin-top: 2rem;
+  display: flex;           /* horizontal layout */
+  justify-content: center; /* center row */
+  align-items: stretch;
+  gap: 1.2rem;
+  flex-wrap: wrap;         /* allows wrapping on small screens; use nowrap to force one line */
+  overflow-x: auto;          /* allow horizontal scroll on small screens */
+  padding-bottom: 0.5rem;    /* a bit of space so shadow doesn't clip */
+}
+
+/* each contact card */
+.contact-item {
+  flex: 0 0 auto;          /* don't stretch to full width */
+}
+
+/* card content: icon + label in a horizontal row */
+.contact-item a {
+  display: inline-flex;    /* horizontal row for icon + text */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  transition: transform 0.16s ease, box-shadow 0.16s ease,
+    border-color 0.16s ease, background 0.16s ease;
+}
+
+/* turn off the underline animation we use for inline links */
+.contact-item a::after {
+  display: none;
+}
+
+/* the GitHub (and future) icons */
+.contact-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* ===========================
+   Footer
+   =========================== */
 
 .site-footer {
-  padding: 1.5rem 1rem;
-  background-color: #f7f7f7;
-  font-size: 12px;
-  color: #666;
+  padding: 1.5rem 1rem 2rem;
   text-align: center;
+  background: #1e2523;
+  color: #f5f3ef;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* === 8. Responsive tweaks === */
+.site-footer span {
+  opacity: 0.9;
+}
 
-@media (max-width: 768px) {
+/* ===========================
+   Responsive Tweaks
+   =========================== */
+
+@media (max-width: 720px) {
   .nav-inner {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .nav-links {
-    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
   }
 
-  .two-column {
-    grid-template-columns: 1fr;
+  .section {
+    padding: 2.6rem 1.1rem;
   }
 
-  .h1Tag,
-  .s-text-font-size-over-40 {
-    font-size: 34px;
+  .section-inner {
+    padding: 2rem 1.4rem 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-title {
+    font-size: 1.05rem;
+  }
+
+  .nav-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .h1Tag {
+    font-size: 1.7rem;
   }
 
   .h2Tag {
-    font-size: 22px;
+    font-size: 1.25rem;
   }
 }
