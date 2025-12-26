@@ -1,0 +1,319 @@
+/* === 1. Reset / base from your Strikingly inline CSS === */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6,
+p,blockquote,pre,
+a,abbr,acronym,address,
+cite,code,del,dfn,em,
+img,q,s,samp,small,strike,strong,
+sub,sup,tt,var,
+dd,dl,dt,li,ol,ul,
+fieldset,form,label,input,textarea,legend,
+button,table,caption,tbody,tfoot,thead,tr,th,td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+  line-height: 1;
+  font-family: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+q:before, q:after,
+blockquote:before, blockquote:after {
+  content: "";
+}
+
+html {
+  font-size: 14px;
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,nav,section {
+  display: block;
+}
+
+audio,canvas,video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+nav,section,aside,article,figure,header,footer,hgroup {
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav ul, footer ul {
+  list-style-type: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #c0c4c8;
+}
+
+/* === 2. Typography & body defaults === */
+/* Matches Strikingly config: body = Arial, headings = Lato */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  background-color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  margin: 0 0 0.5em;
+}
+
+/* Text classes used in your Strikingly content */
+.h1Tag {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.s-text-font-size-over-40 {
+  font-size: 48px;
+}
+
+.h2Tag {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.h4Tag {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.normalPara {
+  font-size: 15px;
+  margin: 0 0 0.75em;
+}
+
+.s-bg-white {
+  background-color: #ffffff;
+}
+
+/* Links */
+a {
+  color: #0369a1;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === 3. Layout helpers for sections === */
+
+.section {
+  padding: 4rem 1rem;
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Two-column layout for About (text + image / Why Herpetology) */
+.two-column {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+.media-block img {
+  border-radius: 4px;
+}
+
+/* Card-style box for secondary content */
+.card {
+  background-color: rgba(255, 255, 255, 0.96);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Research items */
+.research-item {
+  margin-bottom: 2.5rem;
+}
+
+.research-item:last-child {
+  margin-bottom: 0;
+}
+
+/* === 4. Photos / gallery === */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* === 5. Contact icons === */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-item img {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.5rem;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* === 6. Simple header / nav === */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-title {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-subtitle {
+  font-size: 13px;
+  color: #666;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  font-size: 14px;
+  color: #444;
+}
+
+.nav-links a:hover {
+  color: #0076ff;
+}
+
+/* === 7. Footer === */
+
+.site-footer {
+  padding: 1.5rem 1rem;
+  background-color: #f7f7f7;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+/* === 8. Responsive tweaks === */
+
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 0.5rem;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .h1Tag,
+  .s-text-font-size-over-40 {
+    font-size: 34px;
+  }
+
+  .h2Tag {
+    font-size: 22px;
+  }
+}
