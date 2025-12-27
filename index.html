@@ -226,22 +226,6 @@
 </section>
 
     <!-- PHOTOS -->
-
-<section id="photos" class="section s-bg-white">
-  <div class="section-inner">
-    <h1 class="h1Tag s-text-font-size-over-40">Photos</h1>
-    <div id="photo-grid" class="photo-grid">
-      <!-- JS will inject images here -->
-    </div>
-      <p class="normalPara">
-        All photos are the work of NAH and should only be used with expressly written permission.
-      </p>
-  </div>
-</section>
-
-
-
-<!--
     <section id="photos" class="section s-bg-white">
       <div class="section-inner">
         <h1 class="h1Tag s-text-font-size-over-40">Photos</h1>
@@ -249,16 +233,18 @@
         <p class="normalPara">
           Coming soon!
         </p>
+
+        <!-- You can replace these src values with your actual image paths -->
+        <!--
         <div class="gallery-grid">
           <img src="photos/photo1.jpg" alt="photo 1">
           <img src="photos/photo2.jpg" alt="photo 2">
           <img src="photos/photo3.jpg" alt="photo 3">
           <img src="photos/photo4.jpg" alt="photo 4">
         </div>
-        
+        -->
       </div>
     </section>
--->
 
     <!-- CONTACT -->
     <section id="contact" class="section s-bg-white">
@@ -318,123 +304,6 @@
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-<!-- javascript for photos -->
-
-<!-- Lightbox overlay for zoomed images -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <div class="lightbox-backdrop"></div>
-  <figure class="lightbox-content">
-    <img id="lightbox-image" src="" alt="">
-  </figure>
-</div>
-
-<script>
-  // Directory *relative to index.html*
-  const imageDir = "images/slideshow/";
-
-  // List all image files you want to show
-  // (jpg, png, tif, etc.)
-  const imageFiles = [
-"CDS_5654-Edit.jpg",
-"NAH-CDS--10.jpg",
-"NAH-CDS-5646.jpg",
-"CDS_5660-Edit.jpg",
-"CDS_2507.jpg",
-
-"NAH-6947.jpg",
-"NAH-CDS-5572.jpg",
-"CDS_5497-Edit.jpg",
-"NAH-7044.jpg",
-//"NAH-CDS-5604.jpg",
-"CDS_5599-Edit.jpg",
-
-//"NAH-7179.jpg",
-//"NAH-CDS-5610.jpg",
-"NAH-CDS--12.jpg",
-//"NAH-CDS-5662.jpg",
-"CDS_6206-Edit.jpg",
-"NAH-CDS--14.jpg",
-"NAH-CDS-5806.jpg",
-"CDS_6668_NAH.jpg",
-
-"NAH-CDS--15.jpg",
-"NAH-CDS-6233.jpg",
-"CDS_7073-Edit.jpg",
-"NAH-CDS--17.jpg",
-//"NAH-CDS-6245.jpg",
-
-"NAH-6761.jpg",
-"NAH-CDS--22.jpg",
-"NAH-CDS-6284.jpg",
-"NAH-6776.jpg",
-"NAH-CDS--8.jpg",
-
-//"NAH-CDS-6764.jpg",
-"NAH-6789.jpg",
-"NAH-CDS--9.jpg",
-"NAH-CDS-gono.jpg",
-"NAH-6821.jpg",
-"NAH-CDS-2524.jpg",
-
-"NAH-ODWC-Banner.jpg",
-"NAH-6878.jpg",
-"NAH-CDS-5473.jpg"
-    // add more here as you drop them into images/photos/
-  ];
-
-  const photoGrid = document.getElementById("photo-grid");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightbox-image");
-  const lightboxBackdrop = lightbox.querySelector(".lightbox-backdrop");
-
-  function openLightbox(src, alt = "") {
-    lightboxImage.src = src;
-    lightboxImage.alt = alt;
-    lightbox.classList.add("is-open");
-    lightbox.setAttribute("aria-hidden", "false");
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove("is-open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImage.src = "";
-    lightboxImage.alt = "";
-  }
-
-  // Close when clicking the backdrop or pressing Escape
-  lightboxBackdrop.addEventListener("click", closeLightbox);
-  lightbox.addEventListener("click", (event) => {
-    // if you click anywhere outside the image area, close
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-      closeLightbox();
-    }
-  });
-
-  // Build the photo grid and attach click handlers
-  imageFiles.forEach((file) => {
-    const figure = document.createElement("figure");
-    figure.className = "photo-item";
-
-    const img = document.createElement("img");
-    img.src = imageDir + file;
-    img.alt = ""; // you can customize this per file if you want
-
-    img.addEventListener("click", () => {
-      openLightbox(img.src, img.alt);
-    });
-
-    figure.appendChild(img);
-    photoGrid.appendChild(figure);
-  });
-</script>
-
 
 </body>
 </html>
