@@ -223,6 +223,104 @@ main {
   margin-top: 0.2rem;
 }
 
+/* About section: photo on the left, text on the right */
+.about-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+/* Right side content */
+.about-text {
+  flex: 1 1 0;
+}
+
+/* Left side photo column */
+.about-photo {
+  flex: 0 0 260px;
+}
+
+/* Portrait styling */
+.about-photo img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 999px; /* circular portrait */
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile: stack photo above text */
+@media (max-width: 768px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-photo {
+    flex: none;
+    width: 180px;
+  }
+
+  .about-photo img {
+    max-width: 180px;
+  }
+}
+
+/* "Why Herpetology?" sub-section layout – match About spacing */
+.herp-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;            /* same as .about-layout */
+  margin-top: 2.5rem;
+}
+
+/* Left column: image */
+.herp-photo {
+  flex: 0 0 260px;        /* same width concept as .about-photo */
+}
+
+.herp-photo img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 16px;    /* rectangle with soft corners; change to 999px for circle */
+  object-fit: cover;
+  background-color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Right column: text */
+.herp-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Mobile: stack like About section */
+@media (max-width: 768px) {
+  .herp-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .herp-photo {
+    flex: none;
+    width: 180px;
+  }
+
+  .herp-photo img {
+    max-width: 180px;
+  }
+
+  .herp-text {
+    width: 100%;
+  }
+}
+
+
+
 /* ===========================
    Research Cards
    =========================== */
