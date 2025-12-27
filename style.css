@@ -8,7 +8,7 @@
   --color-surface-alt: #f0ebe4; /* subtle variation */
   --color-accent: #3f6b5c;      /* muted forest green */
   --color-accent-soft: rgba(63, 107, 92, 0.08);
-  --color-accent-strong: #2e4c42;
+  --color-accent-strong: #c28a00;
   --color-text: #263238;        /* dark blue-grey */
   --color-muted: #6b7a82;
   --color-border: rgba(0, 0, 0, 0.08);
@@ -43,10 +43,11 @@ body {
    =========================== */
 
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
   text-decoration: none;
   position: relative;
   transition: color 0.18s ease;
+  font-weight: 600; /* or 700 for extra bold */
 }
 
 a::after {
